@@ -49,4 +49,58 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    private void pickupHealth()
+    {
+        health += 50;
+        if (health > 200)
+        {
+            health = 200;
+        }
+    }
+
+    private void pickupArmor()
+    {
+        armor += 15;
+    }
+
+    private void pickupAssaultRifleAmmo()
+    {
+        ammo.AddAmmo(Constants.AssaultRifle, 50);
+    }
+
+    private void pickupPistolAmmo()
+    {
+        ammo.AddAmmo(Constants.Pistol, 20);
+    }
+
+    private void pickupShotgunAmmo()
+    {
+        ammo.AddAmmo(Constants.Shotgun, 10);
+    }
+
+    public void PickUpItem(int pickupType)
+    {
+        switch (pickupType)
+        {
+            case Constants.PickupArmor:
+                pickupArmor();
+                break;
+            case Constants.PickupHealth:
+                pickupHealth();
+                break;
+            case Constants.PickupAssaultRifleAmmo:
+                pickupAssaultRifleAmmo();
+                break;
+            case Constants.PickUpPistolAmmo:
+                pickupPistolAmmo();
+                break;
+            case Constants.PickupShotgunAmmo:
+                pickupShotgunAmmo();
+                break;
+            default:
+                Debug.LogError("Bad pickup type passed" + pickupType);
+                break;
+        }
+    }
 }

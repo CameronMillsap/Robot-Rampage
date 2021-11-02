@@ -38,7 +38,7 @@ public class Ammo : MonoBehaviour
         
     }
 
-    public void AddAmmo(string tage, int ammo)
+    public void AddAmmo(string tag, int ammo)
     {
         if (!tagToAmmo.ContainsKey(tag))
         {
