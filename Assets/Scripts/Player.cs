@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public GameUI gameUI;
     private GunEquipper gunEquipper;
     private Ammo ammo;
+
+    public Game game;
+    public AudioClip playerDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +51,8 @@ public class Player : MonoBehaviour
 
             if (health <= 0)
             {
-                Debug.Log("GameOver");
+                GetComponent<AudioSource>().PlayOneShot(playerDead);
+                game.GameOver();
             }
         }
     }
